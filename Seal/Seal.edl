@@ -1,0 +1,14 @@
+enclave {
+
+	trusted {
+        public size_t ecall_get_sealed_blob_size();
+        public sgx_status_t ecall_generate_sealed_blob(
+            [out, count=sealed_blob_size] uint8_t* sealed_blob, 
+            size_t sealed_blob_size);
+	};
+
+    untrusted {
+
+    };
+
+};

@@ -1,0 +1,26 @@
+enclave {
+
+    include "user_types.h" /* buffer_t */
+    
+    trusted {
+        public void ecall_array_user_check([user_check] int array[4]);
+        public uint32_t init_sealed_policy(
+            [out, size=sealed_log_size] uint8_t* sealed_log, 
+            uint32_t sealed_log_size );
+        public uint32_t update_sealed_policy(
+            [in] float data[3],
+            [in,out, size=sealed_log_size] uint8_t* sealed_log, 
+            uint32_t sealed_log_size );
+        public uint32_t show_sealed_policy(
+            [in,out, size=sealed_log_size] uint8_t* sealed_log, 
+            uint32_t sealed_log_size );
+        public uint32_t read_sealed_policy(
+            [in,out, size=sealed_log_size] uint8_t* sealed_log, 
+            uint32_t sealed_log_size );
+    };
+
+    untrusted {
+        void printint(uint32_t num);
+        void printsecret([in] float secret[32][3]);
+    };
+};
