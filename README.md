@@ -66,10 +66,10 @@ PCは BOXNUC7i5BNH を使用．<br>
   $ ./app
 ```
 
-- without PCL (RAは今のところ必要ないと考えているのでこっちを用いる)
+- with PCL (RAは今のところ必要ないと考えているのでこっちを用いる)
 ```
   $ cd getGPS
-  $ make SGX_PCL=0
+  $ make SGX_PCL=1
   $ ./app
 ```
 
